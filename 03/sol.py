@@ -22,12 +22,12 @@ def p2(input: str):
         nums = [int(x) for x in line]
 
         for i in range(12):
-            left = nums[: len(nums) - (11 - i)]
+            r = 11 - i
+            left = nums[: len(nums) - r]
             fm = max(left)
             fi = left.index(fm)
-            right = nums[fi + 1 :]
-            s += max(left) * (10 ** (12 - i - 1))
-            nums = right
+            s += fm * (10**r)
+            nums = nums[fi + 1 :]
 
     return s
 
